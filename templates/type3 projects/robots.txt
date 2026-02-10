@@ -1,0 +1,3 @@
+User-Agent: *
+Disallow:
+Sitemap: https://www.type3projects.co.za/sitemap.xml
