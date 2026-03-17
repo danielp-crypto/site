@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_start();
 if (!isset($_SESSION['admin'])) {
     header("Location: login.php");
@@ -6,7 +8,14 @@ if (!isset($_SESSION['admin'])) {
 }
 
 include("db.php");
+if (!$conn) {
+    die("Database connection failed");
+}
+
 $result = $conn->query("SELECT * FROM registrations ORDER BY id DESC");
+if (!$result) {
+    die("Query failed: " . $conn->error);
+}
 ?>
 <!DOCTYPE html>
 <html>
